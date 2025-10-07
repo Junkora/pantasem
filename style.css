@@ -1,0 +1,205 @@
+:root {
+  --bg: #0e1117;
+  --panel: #151a23;
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --accent: #3b82f6;
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --border: #2a2f3a;
+  --input: #0f1522;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+  line-height: 1.4;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 16px;
+}
+.header h1 {
+  font-size: 22px; margin: 0;
+}
+.subtle {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  margin: 0 0 8px 0; font-size: 16px;
+}
+
+.row {
+  display: grid; gap: 12px;
+}
+
+.traits-grid {
+  display: grid; gap: 8px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 680px) {
+  .traits-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.trait {
+  display: grid; gap: 8px;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.02);
+}
+.trait .top {
+  display: flex; align-items: center; gap: 8px; justify-content: space-between;
+}
+.trait .left {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.trait .right {
+  display: grid; gap: 8px;
+  grid-template-columns: 1fr auto;
+}
+.label {
+  font-weight: 600;
+}
+.badge {
+  font-size: 11px; color: var(--muted); border: 1px solid var(--border);
+  padding: 3px 8px; border-radius: 999px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+}
+textarea { min-height: 120px; resize: vertical; }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #111727;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: #122036; }
+.btn:active { transform: translateY(1px); }
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn.ghost {
+  background: transparent;
+}
+.btn.warn {
+  background: #2b2410; border-color: #4b3f16; color: #ffe8b2;
+}
+.btn.small { padding: 6px 10px; font-size: 12px; }
+
+.suggestions {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: #0f1422;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chip:hover { color: var(--text); border-color: var(--text); }
+
+.sep { height: 1px; background: var(--border); margin: 10px 0; }
+
+.progress {
+  height: 10px;
+  background: #0f1525;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress > div {
+  height: 100%; width: 0%;
+  background: var(--accent);
+  transition: width .2s ease;
+}
+
+.log {
+  background: #0b0f1b;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #cfe3ff;
+}
+
+.form-grid {
+  display: grid; gap: 8px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 680px) {
+  .form-grid.two { grid-template-columns: 1fr 1fr; }
+  .form-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+}
+.field { display: grid; gap: 6px; }
+.field label { font-size: 12px; color: var(--muted); }
+
+details {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+details > summary {
+  cursor: pointer;
+  color: var(--muted);
+  margin: 0 0 6px 0;
+  list-style: none;
+}
+details > summary::-webkit-details-marker { display: none; }
+
+.hint { color: var(--muted); font-size: 12px; }

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NFT Traits Prompt Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>22 NFT Traits Prompt Generator</h1>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title">Traits</h2>
+      <p class="subtle">Add traits and set values. Checked traits are included.</p>
+      <div class="form-grid two" id="theme-controls">
+        <div class="field">
+          <label for="theme-select">Theme</label>
+          <select id="theme-select">
+            <option value="">All Themes</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Theme Stats</label>
+          <div id="theme-stats" class="subtle"></div>
+        </div>
+      </div>
+      <div id="traits" class="traits-grid"></div>
+      <div class="controls">
+        <button class="btn" id="add-trait-btn">+ Add Trait</button>
+        <button class="btn ghost" id="fill-example-btn">Fill Example</button>
+        <button class="btn primary" id="generate-prompt-btn">Generate Single Prompt</button>
+      </div>
+      <div class="sep"></div>
+      <label for="single-output" class="section-title">Single Prompt Output</label>
+      <textarea id="single-output" placeholder="Generated prompt will appear here..."></textarea>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title">Bulk Generation</h2>
+
+      <div class="form-grid two">
+        <div class="field">
+          <label for="bulk-count">Number of prompts</label>
+          <input type="number" id="bulk-count" min="1" value="10" />
+        </div>
+        <div class="field">
+          <label>Randomize "random" values</label>
+          <div>
+            <input type="checkbox" id="randomize-random" checked />
+            <span class="subtle">Enable randomization</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Use AI</label>
+          <div>
+            <input type="checkbox" id="use-ai" checked />
+            <span class="subtle">AI mode (recommended)</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Allow mixed/unpaired traits</label>
+          <div>
+            <input type="checkbox" id="decouple-traits" checked />
+            <span class="subtle">Do not harmonize traits</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Heuristic fallback (no API Key)</label>
+          <div>
+            <input type="checkbox" id="allow-fallback" checked />
+            <span class="subtle">Allow fallback template</span>
+          </div>
+        </div>
+      </div>
+
+      <details>
+        <summary>AI Provider Settings</summary>
+        <div class="form-grid two" style="margin-top:8px;">
+          <div class="field">
+            <label for="api-base">Base URL</label>
+            <input type="text" id="api-base" placeholder="https://openrouter.ai/api/v1" value="https://openrouter.ai/api/v1" />
+          </div>
+          <div class="field">
+            <label for="api-model">Model</label>
+            <input type="text" id="api-model" placeholder="google/gemini-2.5-flash-lite-preview-09-2025" value="google/gemini-2.5-flash-lite-preview-09-2025" />
+          </div>
+          <div class="field">
+            <label for="api-key">API Key</label>
+            <input type="password" id="api-key" placeholder="sk-..." />
+            <span class="hint">Stored locally in your browser only.</span>
+          </div>
+          <div class="field">
+            <label for="concurrency">Max concurrency</label>
+            <input type="number" id="concurrency" min="1" max="8" value="3" />
+          </div>
+        </div>
+      </details>
+
+      <div class="sep"></div>
+      <div class="controls">
+        <button class="btn primary" id="bulk-generate-btn">Bulk Generate CSV</button>
+        <span class="subtle">CSV includes checked traits and full AI prompt</span>
+      </div>
+
+      <div class="sep"></div>
+      <div class="progress"><div id="progress-bar"></div></div>
+      <div id="log" class="log" aria-live="polite"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title">Help</h2>
+      <ul class="subtle" style="padding-left:18px; margin:0;">
+        <li>Use "+ Add Trait" to add custom traits. Check to include.</li>
+        <li>"Fill Example" loads a quick preset.</li>
+        <li>"Use AI" makes prompts with your trait values. Fallback produces a deterministic prompt.</li>
+        <li>Set trait value to "random" to auto-pick a sensible value.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="cathe.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
