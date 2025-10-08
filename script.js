@@ -218,7 +218,7 @@ const SUGGESTIONS = {
     "Skateboard", "Guitar", "Electric Guitar", "Bass Guitar",
     "Boombox", "Graffiti Tank", "Spray Can Pack", "Banner Flag",
     "Flag Cape", "Streamer Backpack", "Headphones Rig",
-    "Parrot", "Pet Drone", "Mini Companion Bot",
+    "Pet Drone", "Mini Companion Bot",
 
     // 🏹 Survival / Apocalyptic
     "Gas Tank", "Tool Kit", "Oxygen Tank", "Radio Antenna Pack",
